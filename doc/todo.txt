@@ -1,0 +1,110 @@
+*task.txt* functionality for todo files
+
+                           __________  ____  ____ ~
+                          /_  __/ __ \/ __ \/ __ \~
+                           / / / / / / / / / / / /~
+                          / / / /_/ / /_/ / /_/ / ~
+                         /_/  \____/_____/\____/  ~
+                                      ~
+ 
+==============================================================================
+CONTENTS                                                        *TODOContents*
+
+    1. Usage...................................|TODOUsage|
+    2. Mapping.................................|TODOMapping|
+    3. License.................................|TODOLicense|
+    4. Bugs....................................|TODOBugs|
+    5. Contributing............................|TODOContributing|
+    6. Changelog...............................|TODOChangelog|
+    7. Credits.................................|TODOCredits|
+
+==============================================================================
+Section 1: Usage                                                   *TODOUsage*
+
+==============================================================================
+Section 2: Mapping                                               *TODOMapping*
+
+Default Key   Description                                           help-tag~
+
+<leader>n.....Creates a new task below the cursor...................|TODO-n|
+<leader>N.....Creates a new task above the cursor...................|TODO-N|
+<leader>d.....Toggles the compleation of the task...................|TODO-d|
+<leader>D.....Deletes task at cursor................................|TODO-D|
+<leader>].....Increases the priority of a task......................|TODO-]|
+<leader>[.....Decreases the priority of a task......................|TODO-[|
+<leader>......Increases the indentation of a task...................|TODO-.|
+<leader>,.....Decreases the indentation of a task...................|TODO-,|
+
+------------------------------------------------------------------------------
+                                                                      *TODO-n*
+Default key: n
+
+Creates a new task below the current line, bulled list is continued at
+current indentation level. The set value for the working box
+(|TODO-todo_working|) is added, as well as a default priority setting
+(|TODO-todo_default_priority|).
+
+Also see: |TODO-NewTask|
+
+------------------------------------------------------------------------------
+                                                                     *TODO-N*
+Default key: N
+
+Create a new task below the current line, bullet lists are not preserved nore
+is the current indentation level. The set value for the working box
+(|TODO-todo_working|) is added, as well as a default priority setting
+(|TODO-todo_default_priority|)
+
+Also see: |TODO-NewTask|
+
+------------------------------------------------------------------------------
+                                                                      *TODO-d*
+Default key: d
+
+Sets the task under the cursor to being compleated, changeing the working box
+(|TODO-todo_working|) to the compleated box (|TODO-todo_done|). The date and
+time according to the date format (|TODO-todo_date_format|) is added to the
+end of the task.
+
+Also see: |TODO-TaskComplete|
+
+------------------------------------------------------------------------------
+                                                                      *TODO-D*
+Default key: D
+
+Deletes the current task/line
+
+Also see: |TODO-DeleteTask|
+
+------------------------------------------------------------------------------
+                                                                      *TODO-]*
+Default key: ]
+
+Increases the priority of the task below the cursor. Limited at highest
+priority of 1
+
+Also see: |TODO-TaskPriority|
+
+------------------------------------------------------------------------------
+                                                                      *TODO-[*
+Default key: [
+
+Decreases the priority of the task below the cursor.
+
+Also see: |TODO-TaskPriority|
+
+------------------------------------------------------------------------------
+                                                                      *TODO-.*
+Default key: .
+
+Increases the indentation of the task below the cursor.
+
+Also See: |TODO-IndentTask|
+
+------------------------------------------------------------------------------
+                                                                      *TODO-,*
+Default key: ,
+
+Decreases the indentation of the task below the cursor.
+
+Also See: |TODO-IndentTask|

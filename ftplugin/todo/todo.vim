@@ -14,6 +14,8 @@ call s:SetGlobalOption("todo_use_icon", 0)
 call s:SetGlobalOption("todo_working_icon", "☐")
 call s:SetGlobalOption("todo_done_icon", "☑")
 
+au BufWrite TODO,*.todo :saveas! TODO.md
+
 let b:regesc = '[]()?.*@='
 
 let s:reg_project = '^\s*#+.*#+$'
@@ -36,6 +38,7 @@ function! IndentTask(direction)
   elseif a:direction == -1
     exec 'normal v <'
   endif
+  exec "normal $"
 endfunction
 
 function! TaskPriority(direction)
@@ -45,6 +48,7 @@ function! TaskPriority(direction)
   elseif a:direction == -1 && matchstr(getline('.'), '\%' . col('.') . 'c.') != '1'
     exec "normal \<C-x>"
   endif
+  exec "normal $"
 endfunction
 
 function! SetLineMarker(marker)
@@ -76,16 +80,12 @@ endfunction
 function! NewTask(direction)
   let l:line = getline('.')
   let l:is_match = match(l:line, s:reg_project)
-  let l:text = '- ' . g:todo_working . ' (4) '
+  let l:text = g:todo_working . ' (4) '
   if a:direction == -1
     exec 'normal O' . l:text
   elseif a:direction == 1
-    exec 'normal o' . l:text
+    exec "normal $a\<Enter>" . l:text
   endif
-  if l:is_match > -1
-    exec 'normal >>'
-  endif
-  startinsert!
 endfunction
 
 function! DeleteTask()
