@@ -1,4 +1,4 @@
-*task.txt* functionality for todo files
+*TODO.txt* functionality for todo files
 
                            __________  ____  ____ ~
                           /_  __/ __ \/ __ \/ __ \~
@@ -12,31 +12,32 @@ CONTENTS                                                        *TODOContents*
 
     1. Usage...................................|TODOUsage|
     2. Mapping.................................|TODOMapping|
-    3. License.................................|TODOLicense|
-    4. Bugs....................................|TODOBugs|
-    5. Contributing............................|TODOContributing|
-    6. Changelog...............................|TODOChangelog|
-    7. Credits.................................|TODOCredits|
+    3. Options.................................|TODOOptions|
 
 ==============================================================================
 Section 1: Usage                                                   *TODOUsage*
+
+TODO highlighting is applied on all files called "TODO", and "TODO.txt". The
+highlighting follows a basic markdown like format. By default on save of a
+file a copy is created with a markdown extension (for GitHub viewing). This
+setting can be disabled with |TODOopt-auto_save|.
 
 ==============================================================================
 Section 2: Mapping                                               *TODOMapping*
 
 Default Key   Description                                           help-tag~
 
-<leader>n.....Creates a new task below the cursor...................|TODO-n|
-<leader>N.....Creates a new task above the cursor...................|TODO-N|
-<leader>d.....Toggles the compleation of the task...................|TODO-d|
-<leader>D.....Deletes task at cursor................................|TODO-D|
-<leader>].....Increases the priority of a task......................|TODO-]|
-<leader>[.....Decreases the priority of a task......................|TODO-[|
-<leader>......Increases the indentation of a task...................|TODO-.|
-<leader>,.....Decreases the indentation of a task...................|TODO-,|
+<leader>n.....Creates a new task below the cursor..................|TODOkey-n|
+<leader><S-n>.Creates a new task above the cursor..................|TODOkey-N|
+<leader>d.....Toggles the completion of the task...................|TODOkey-d|
+<leader>D.....Deletes task at cursor...............................|TODOkey-D|
+<leader>].....Increases the priority of a task.....................|TODOkey-]|
+<leader>[.....Decreases the priority of a task.....................|TODOkey-[|
+<leader>......Increases the indentation of a task..................|TODOkey-.|
+<leader>,.....Decreases the indentation of a task..................|TODOkey-,|
 
 ------------------------------------------------------------------------------
-                                                                      *TODO-n*
+                                                                   *TODOkey-n*
 Default key: n
 
 Creates a new task below the current line, bulled list is continued at
@@ -44,21 +45,17 @@ current indentation level. The set value for the working box
 (|TODO-todo_working|) is added, as well as a default priority setting
 (|TODO-todo_default_priority|).
 
-Also see: |TODO-NewTask|
-
 ------------------------------------------------------------------------------
-                                                                     *TODO-N*
-Default key: N
+                                                                   *TODOkey-N*
+Default key: <S-n>
 
 Create a new task below the current line, bullet lists are not preserved nore
 is the current indentation level. The set value for the working box
 (|TODO-todo_working|) is added, as well as a default priority setting
 (|TODO-todo_default_priority|)
 
-Also see: |TODO-NewTask|
-
 ------------------------------------------------------------------------------
-                                                                      *TODO-d*
+                                                                   *TODOkey-d*
 Default key: d
 
 Sets the task under the cursor to being compleated, changeing the working box
@@ -66,45 +63,102 @@ Sets the task under the cursor to being compleated, changeing the working box
 time according to the date format (|TODO-todo_date_format|) is added to the
 end of the task.
 
-Also see: |TODO-TaskComplete|
-
 ------------------------------------------------------------------------------
-                                                                      *TODO-D*
+                                                                   *TODOkey-D*
 Default key: D
 
 Deletes the current task/line
 
-Also see: |TODO-DeleteTask|
-
 ------------------------------------------------------------------------------
-                                                                      *TODO-]*
+                                                                   *TODOkey-]*
 Default key: ]
 
 Increases the priority of the task below the cursor. Limited at highest
 priority of 1
 
-Also see: |TODO-TaskPriority|
-
 ------------------------------------------------------------------------------
-                                                                      *TODO-[*
+                                                                   *TODOkey-[*
 Default key: [
 
 Decreases the priority of the task below the cursor.
 
-Also see: |TODO-TaskPriority|
-
 ------------------------------------------------------------------------------
-                                                                      *TODO-.*
+                                                                   *TODOkey-.*
 Default key: .
 
 Increases the indentation of the task below the cursor.
 
-Also See: |TODO-IndentTask|
-
 ------------------------------------------------------------------------------
-                                                                      *TODO-,*
+                                                                   *TODOkey-,*
 Default key: ,
 
 Decreases the indentation of the task below the cursor.
 
-Also See: |TODO-IndentTask|
+==============================================================================
+Section 3: Options                                               *TODOOptions*
+
+Option             Description~
+
+todo_date_format...Sets the format for the date output..|TODOopt-date_format|
+todo_date_sym......Sets character to define date entry..|TODOopt-date_sym|
+todo_working.......Sets symbol for working box..........|TODOopt-working|
+todo_done..........Sets character for done box..........|TODOopt-done|
+todo_bullet........Sets character for bullet conceal....|TODOopt-bullet|
+todo_use_icon......Determines if icons should be used...|TODOopt-icons|
+todo_working_icon..Sets character for working box icon..|TODOopt-working_icon|
+todo_done_icon.....Sets character for done box icon.....|TODOopt-done_icon|
+
+------------------------------------------------------------------------------
+                                                         *TODOopt-date_format*
+Default: %H:$M %d-$m-%Y
+
+Sets the format for the date when a task is completed.
+
+------------------------------------------------------------------------------
+                                                            *TODOopt-date_sym*
+Default: #
+
+Sets the character that prepends the date, to assist in regex matching when
+removing the date.
+
+------------------------------------------------------------------------------
+                                                             *TODOopt-working*
+Default: [ ]
+
+Sets the characters that are placed in front of active tasks in order for the
+regex to recognize them, and for the visibility when looking through tasks.
+
+------------------------------------------------------------------------------
+                                                                *TODOopt-done*
+Default: [x]
+
+Sets the characters that are placed in front of completed tasks in order for
+the regex to recognize them, and for the visibility when looking through tasks.
+
+------------------------------------------------------------------------------
+                                                              *TODOopt-bullet*
+Default: •
+
+Sets the character that is used in concealing default markdown bullet points.
+
+------------------------------------------------------------------------------
+                                                               *TODOopt-icons*
+Default: 0
+
+Sets whether the working and done boxes should be replaced with the icon
+alternatives through conceal. 
+
+------------------------------------------------------------------------------
+                                                        *TODOopt-working_icon*
+Default: ☐
+
+Sets the characters that will replace the working box if todo_use_icons is
+equal to 1.
+
+------------------------------------------------------------------------------
+                                                           *TODOopt-done_icon*
+Default: ☑
+
+Sets the characters that will replace the done box if todo_use_icons is equal
+to 1.
+
