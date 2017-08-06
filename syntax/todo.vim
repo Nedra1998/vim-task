@@ -99,7 +99,7 @@ hi def todo5 ctermfg=13
 hi def link todoPri5 todo5
 hi def todo6 ctermfg=6
 hi def link todoPri6 todo6
-hi def todo7 ctermfg=5
+hi def todo7 ctermfg=4
 hi def link todoPri7 todo7
 hi def todo8 ctermfg=2
 hi def link todoPri8 todo8

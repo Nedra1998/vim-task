@@ -14,7 +14,12 @@ call s:SetGlobalOption("todo_use_icon", 0)
 call s:SetGlobalOption("todo_working_icon", "☐")
 call s:SetGlobalOption("todo_done_icon", "☑")
 
-au BufWrite TODO,*.todo :saveas! TODO.md
+call s:SetGlobalOption("todo_default_priority", 4)
+call s:SetGlobalOption("todo_markdown_save", 0)
+
+if g:todo_markdown_save == 1
+  au BufWrite TODO,*.todo :saveas! TODO.md
+endif
 
 let b:regesc = '[]()?.*@='
 
@@ -80,7 +85,7 @@ endfunction
 function! NewTask(direction)
   let l:line = getline('.')
   let l:is_match = match(l:line, s:reg_project)
-  let l:text = g:todo_working . ' (4) '
+  let l:text = g:todo_working . ' (' . g:todo_default_priority . ') '
   if a:direction == -1
     exec 'normal O' . l:text
   elseif a:direction == 1

@@ -14,8 +14,10 @@ TODOkey-n	todo.txt	/*TODOkey-n*
 TODOopt-bullet	todo.txt	/*TODOopt-bullet*
 TODOopt-date_format	todo.txt	/*TODOopt-date_format*
 TODOopt-date_sym	todo.txt	/*TODOopt-date_sym*
+TODOopt-default_priority	todo.txt	/*TODOopt-default_priority*
 TODOopt-done	todo.txt	/*TODOopt-done*
 TODOopt-done_icon	todo.txt	/*TODOopt-done_icon*
 TODOopt-icons	todo.txt	/*TODOopt-icons*
+TODOopt-markdown_save	todo.txt	/*TODOopt-markdown_save*
 TODOopt-working	todo.txt	/*TODOopt-working*
 TODOopt-working_icon	todo.txt	/*TODOopt-working_icon*

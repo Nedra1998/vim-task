@@ -18,9 +18,9 @@ CONTENTS                                                        *TODOContents*
 Section 1: Usage                                                   *TODOUsage*
 
 TODO highlighting is applied on all files called "TODO", and "TODO.txt". The
-highlighting follows a basic markdown like format. By default on save of a
-file a copy is created with a markdown extension (for GitHub viewing). This
-setting can be disabled with |TODOopt-auto_save|.
+highlighting follows a basic markdown like format.It is posible to create a
+markdown copy (for GitHub viewing) on save. This setting can be enabled with
+|TODOopt-markdown_save|.
 
 ==============================================================================
 Section 2: Mapping                                               *TODOMapping*
@@ -42,8 +42,8 @@ Default key: n
 
 Creates a new task below the current line, bulled list is continued at
 current indentation level. The set value for the working box
-(|TODO-todo_working|) is added, as well as a default priority setting
-(|TODO-todo_default_priority|).
+(|TODOopt-working|) is added, as well as a default priority setting
+(|TODOopt-default_priority|).
 
 ------------------------------------------------------------------------------
                                                                    *TODOkey-N*
@@ -51,16 +51,16 @@ Default key: <S-n>
 
 Create a new task below the current line, bullet lists are not preserved nore
 is the current indentation level. The set value for the working box
-(|TODO-todo_working|) is added, as well as a default priority setting
-(|TODO-todo_default_priority|)
+(|TODOopt-working|) is added, as well as a default priority setting
+(|TODOopt-default_priority|)
 
 ------------------------------------------------------------------------------
                                                                    *TODOkey-d*
 Default key: d
 
 Sets the task under the cursor to being compleated, changeing the working box
-(|TODO-todo_working|) to the compleated box (|TODO-todo_done|). The date and
-time according to the date format (|TODO-todo_date_format|) is added to the
+(|TODOopt-working|) to the compleated box (|TODOopt-done|). The date and
+time according to the date format (|TODOopt-date_format|) is added to the
 end of the task.
 
 ------------------------------------------------------------------------------
@@ -99,14 +99,16 @@ Section 3: Options                                               *TODOOptions*
 
 Option             Description~
 
-todo_date_format...Sets the format for the date output..|TODOopt-date_format|
-todo_date_sym......Sets character to define date entry..|TODOopt-date_sym|
-todo_working.......Sets symbol for working box..........|TODOopt-working|
-todo_done..........Sets character for done box..........|TODOopt-done|
-todo_bullet........Sets character for bullet conceal....|TODOopt-bullet|
-todo_use_icon......Determines if icons should be used...|TODOopt-icons|
-todo_working_icon..Sets character for working box icon..|TODOopt-working_icon|
-todo_done_icon.....Sets character for done box icon.....|TODOopt-done_icon|
+todo_date_format....................................|TODOopt-date_format|
+todo_date_sym.......................................|TODOopt-date_sym|
+todo_working........................................|TODOopt-working|
+todo_done...........................................|TODOopt-done|
+todo_bullet.........................................|TODOopt-bullet|
+todo_use_icon.......................................|TODOopt-icons|
+todo_working_icon...................................|TODOopt-working_icon|
+todo_done_icon......................................|TODOopt-done_icon|
+todo_markdown_save..................................|TODOopt-markdown_save|
+todo_default_priority...............................|TODOopt-default_priority|
 
 ------------------------------------------------------------------------------
                                                          *TODOopt-date_format*
@@ -161,4 +163,16 @@ Default: ☑
 
 Sets the characters that will replace the done box if todo_use_icons is equal
 to 1.
+
+------------------------------------------------------------------------------
+                                                       *TODOopt-markdown_save*
+Default: 0
+
+Controls saving a copy of the file as a markdown for github rendering.
+
+------------------------------------------------------------------------------
+                                                    *TODOopt-default_priority*
+Default: 4
+
+Sets the default priority that is used when creating a new task.
 
